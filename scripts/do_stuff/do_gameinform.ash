@@ -33,7 +33,7 @@ void GetAndUseGameInformMag()
 	}
 	else
 	{
-		cli_execute("mallbuy 1 GameInformPowerDailyPro magazine @ 4000");
+		cli_execute("mallbuy 1 GameInformPowerDailyPro magazine @ 5000");
 		if(item_amount(mag) > 1)
 		{
 			//use(1,mag);
