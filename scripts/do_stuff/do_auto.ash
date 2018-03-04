@@ -49,6 +49,10 @@ void do_hidden_meat()
 		print("meat already gathered..skipping");
 	}
 }
+void do_consume()
+{
+	cli_execute("consume both,400");
+}
 
 void parse_do_auto(string command)
 {
@@ -79,6 +83,9 @@ void parse_do_auto(string command)
 					do_dkl();
 				}
 				break;
+			case "consume":
+				do_consume();
+			break;
 			default:
 				print(cmd_array[num] + " is not a valid choice)");
 				//do_daily_dungeon();
