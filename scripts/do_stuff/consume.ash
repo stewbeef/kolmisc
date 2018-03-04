@@ -170,7 +170,7 @@ consume_list GetConsumeLists(boolean [int] advcosts)
 	}
 	foreach advcost in my_candidates.eats
 	{
-		sort my_candidates.eats[advcost] by -value.efficiency();
+		sort my_candidates.eats[advcost] by -value.efficiency;
 		int food_space = fullness_left();
 		int cindex = 0;
 		while(food_space > 0 && cindex < my_candidates.eats[advcost].count())
