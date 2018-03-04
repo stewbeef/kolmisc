@@ -172,7 +172,7 @@ consume_list GetConsumeLists(boolean [int] advcosts)
 		{
 			item food = my_candidates.eats[advcost,cindex].it;
 			int space = food.fullness;
-			print_html("food %s, efficiency %s", string[int]{food.to_string(),my_candidates.eats[advcost,cindex].it.efficiency.to_string()});
+			//print_html("food %s, efficiency %s", string[int]{food.to_string(),my_candidates.eats[advcost,cindex].efficiency.to_string()});
 			if(space <= food_space && food != $item[none])
 			{			
 				int number = available_amount(food);
