@@ -97,7 +97,7 @@ consume_candidates GetConsumeCandidates(boolean [int] advcosts)
 		//print_html("Drink %s efficiency %s",string[int]{new_drink.it.to_string(),new_drink.efficiency.to_string()});
 		foreach advcost in advcosts
 		{
-			float efficiency = adv_netgain(drink,advcost);
+			float efficiency = netgain_per_adv(drink,advcost);
 			new_drink.efficiency = efficiency;
 			if(advcost > efficiency)
 			{
@@ -115,7 +115,7 @@ consume_candidates GetConsumeCandidates(boolean [int] advcosts)
 		new_food.it = food;	
 		foreach advcost in advcosts
 		{
-			float efficiency = adv_netgain(food,advcost);
+			float efficiency = netgain_per_adv(food,advcost);
 			new_food.efficiency = efficiency;
 			if(advcost > efficiency)
 			{
