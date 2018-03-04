@@ -91,12 +91,11 @@ consume_candidates GetConsumeCandidates(boolean [int] advcosts)
 	foreach drink in stuff.booze
 	{//to do, add in npc and craftables
 		
-		consumable new_drink;
-		new_drink.it = drink;
-		
 		//print_html("Drink %s efficiency %s",string[int]{new_drink.it.to_string(),new_drink.efficiency.to_string()});
 		foreach advcost in advcosts
 		{
+			consumable new_drink;
+			new_drink.it = drink;
 			float efficiency = adv_meat_gain(drink,advcost);
 			new_drink.efficiency = efficiency;
 			int size = booze_list[advcost].count();
@@ -108,13 +107,13 @@ consume_candidates GetConsumeCandidates(boolean [int] advcosts)
 
 	foreach food in stuff.food
 	{//to do, add in npc and craftables	
-		consumable new_food;
-		new_food.it = food;	
 		foreach advcost in advcosts
 		{
+			consumable new_food;
+			new_food.it = food;	
 			float efficiency = adv_meat_gain(food,advcost);
 			new_food.efficiency = efficiency;
-			print_html("food %s, efficiency %s", string[int]{food.to_string(),efficiency.to_string()});
+			//print_html("food %s, efficiency %s", string[int]{food.to_string(),efficiency.to_string()});
 			int size = food_list[advcost].count();
 			food_list[advcost,size] = new_food;
 		}
@@ -172,11 +171,11 @@ consume_list GetConsumeLists(boolean [int] advcosts)
 		{
 			item food = my_candidates.eats[advcost,cindex].it;
 			int space = food.fullness;
-			print_html("food %s, efficiency %s", string[int]{food.to_string(),my_candidates.eats[advcost,cindex].efficiency.to_string()});
+			//print_html("food %s, efficiency %s", string[int]{food.to_string(),my_candidates.eats[advcost,cindex].efficiency.to_string()});
 			if(space <= food_space && food != $item[none])
 			{			
 				int number = available_amount(food);
-				print_html("food %s",food.to_string());
+				//print_html("food %s",food.to_string());
 				int to_eat = min(food_space / space, number);
 				if(to_eat > 0)
 				{
