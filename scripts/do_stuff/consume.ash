@@ -114,7 +114,7 @@ consume_candidates GetConsumeCandidates(boolean [int] advcosts)
 		{
 			float efficiency = netgain_per_adv(food,advcost);
 			new_food.efficiency = efficiency;
-			print("food %s, efficiency %s", string[int]{food.to_string(),efficiency.to_string()});
+			print_html("food %s, efficiency %s", string[int]{food.to_string(),efficiency.to_string()});
 			int size = food_list[advcost].count();
 			food_list[advcost,size] = new_food;
 		}
