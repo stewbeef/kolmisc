@@ -99,11 +99,8 @@ consume_candidates GetConsumeCandidates(boolean [int] advcosts)
 		{
 			float efficiency = netgain_per_adv(drink,advcost);
 			new_drink.efficiency = efficiency;
-			if(advcost > efficiency)
-			{
-				int size = booze_list[advcost].count();
-				booze_list[advcost,size] = new_drink;
-			}
+			int size = booze_list[advcost].count();
+			booze_list[advcost,size] = new_drink;
 		}
 	}
 
@@ -117,11 +114,8 @@ consume_candidates GetConsumeCandidates(boolean [int] advcosts)
 		{
 			float efficiency = netgain_per_adv(food,advcost);
 			new_food.efficiency = efficiency;
-			if(advcost > efficiency)
-			{
-				int size = food_list[advcost].count();
-				food_list[advcost,size] = new_food;
-			}
+			int size = food_list[advcost].count();
+			food_list[advcost,size] = new_food;
 		}
 	}
 	int stomach =  fullness_left();
