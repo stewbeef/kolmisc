@@ -114,6 +114,7 @@ consume_candidates GetConsumeCandidates(boolean [int] advcosts)
 		{
 			float efficiency = netgain_per_adv(food,advcost);
 			new_food.efficiency = efficiency;
+			print("food %s, efficiency %s", string[int]{food.to_string(),efficiency.to_string()})
 			int size = food_list[advcost].count();
 			food_list[advcost,size] = new_food;
 		}
@@ -174,7 +175,7 @@ consume_list GetConsumeLists(boolean [int] advcosts)
 			if(space <= food_space && food != $item[none])
 			{			
 				int number = available_amount(food);
-				//print_html("food %s",food.to_string());
+				print_html("food %s",food.to_string());
 				int to_eat = min(food_space / space, number);
 				if(to_eat > 0)
 				{
