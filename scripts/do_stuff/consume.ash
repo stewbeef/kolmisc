@@ -90,13 +90,15 @@ consume_candidates GetConsumeCandidates(boolean [int] advcosts)
 
 	foreach drink in stuff.booze
 	{//to do, add in npc and craftables
-		float efficiency = meat_per_adv_per_space(drink);
+		
 		consumable new_drink;
 		new_drink.it = drink;
-		new_drink.efficiency = efficiency;
+		
 		//print_html("Drink %s efficiency %s",string[int]{new_drink.it.to_string(),new_drink.efficiency.to_string()});
 		foreach advcost in advcosts
 		{
+			float efficiency = adv_netgain(drink,advcost);
+			new_drink.efficiency = efficiency;
 			if(advcost > efficiency)
 			{
 				int size = booze_list[advcost].count();
@@ -108,13 +110,13 @@ consume_candidates GetConsumeCandidates(boolean [int] advcosts)
 	consumable [int,int] food_list;
 
 	foreach food in stuff.food
-	{//to do, add in npc and craftables
-		float efficiency = meat_per_adv_per_space(food);
+	{//to do, add in npc and craftables	
 		consumable new_food;
-		new_food.it = food;
-		new_food.efficiency = efficiency;
+		new_food.it = food;	
 		foreach advcost in advcosts
 		{
+			float efficiency = adv_netgain(food,advcost);
+			new_food.efficiency = efficiency;
 			if(advcost > efficiency)
 			{
 				int size = food_list[advcost].count();
@@ -144,7 +146,7 @@ consume_list GetConsumeLists(boolean [int] advcosts)
 	consume_list my_list;
 	foreach advcost in my_candidates.drinks
 	{
-		sort my_candidates.drinks[advcost] by -value.it.adv_per_space();
+		sort my_candidates.drinks[advcost] by -value.efficiency;
 		int liver_space = inebriety_left();
 		int cindex = 0;
 		while(liver_space > 0 && cindex < my_candidates.drinks[advcost].count())
@@ -168,7 +170,7 @@ consume_list GetConsumeLists(boolean [int] advcosts)
 	}
 	foreach advcost in my_candidates.eats
 	{
-		sort my_candidates.eats[advcost] by -value.it.adv_per_space();
+		sort my_candidates.eats[advcost] by -value.efficiency();
 		int food_space = fullness_left();
 		int cindex = 0;
 		while(food_space > 0 && cindex < my_candidates.eats[advcost].count())
