@@ -97,7 +97,7 @@ consume_candidates GetConsumeCandidates(boolean [int] advcosts)
 		//print_html("Drink %s efficiency %s",string[int]{new_drink.it.to_string(),new_drink.efficiency.to_string()});
 		foreach advcost in advcosts
 		{
-			float efficiency = netgain_per_adv(drink,advcost);
+			float efficiency = adv_meat_gain(drink,advcost);
 			new_drink.efficiency = efficiency;
 			int size = booze_list[advcost].count();
 			booze_list[advcost,size] = new_drink;
@@ -112,7 +112,7 @@ consume_candidates GetConsumeCandidates(boolean [int] advcosts)
 		new_food.it = food;	
 		foreach advcost in advcosts
 		{
-			float efficiency = netgain_per_adv(food,advcost);
+			float efficiency = adv_meat_gain(food,advcost);
 			new_food.efficiency = efficiency;
 			print_html("food %s, efficiency %s", string[int]{food.to_string(),efficiency.to_string()});
 			int size = food_list[advcost].count();
