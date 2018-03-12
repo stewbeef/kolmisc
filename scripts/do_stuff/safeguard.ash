@@ -310,7 +310,7 @@ void sg_closet_items()
 	{
 		put_closet(item_amount(it), it);
 	}
-	GetBuy(50,to_item("Doc Galaktik's Pungent Unguent"))
+	GetBuy(50,to_item("Doc Galaktik's Pungent Unguent"));
 }
 
 void sg_closet_remove()
