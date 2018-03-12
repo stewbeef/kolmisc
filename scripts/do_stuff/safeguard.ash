@@ -456,7 +456,7 @@ void sg_mall_items()
 			}
 			else
 			{
-				price=mall_price(item);
+				price = mall_price(it);
 			}
 			put_shop(price,0, item_amount(it),it);
 		}
