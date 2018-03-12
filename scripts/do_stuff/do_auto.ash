@@ -1,11 +1,21 @@
 script "do_auto.ash";
+import "beefy_tools.ash";
 import "do_gameinform.ash";
 import "daily_key_lime.ash";
+
 
 void do_daily_dungeon()
 {
 	if(get_property("_lastDailyDungeonRoom") != "15")
 	{
+		item picko = to_item("Pick-O-Matic lockpicks");
+		item rdbd = to_item("ring of Detect Boring Doors");
+		item elevenft = to_item("eleven-foot pole");
+
+		getbuy(1,picko)
+		getbuy(1,rdbd)
+		getbuy(1,rdbd)
+
 		print("equipping ring of detecting boring doors");
 		slot accslot = $slot[acc3];
 		item curacc3 = equipped_item(accslot);
@@ -19,6 +29,12 @@ void do_daily_dungeon()
 		//equip(accslot, curacc3);
 		outfit("Main");
 		print("daily dungeon complete");
+		if(hippy_stone_broken())
+		{
+			put_closet(1,picko)
+			put_closet(1,rdbd)
+			put_closet(1,rdbd)
+		}
 	}
 	else
 	{
@@ -56,41 +72,53 @@ void do_consume()
 
 void parse_do_auto(string command)
 {
-	string [int] cmd_array = command.to_lower_case().split_string(",");
-	foreach num in cmd_array
+	matcher m = create_matcher("\s*setprop(\s|,)+(.*)");
+
+	if(m.find())
 	{
-		switch(cmd_array[num])
+		set_property("do_auto_tasks",m.group(2));
+	}
+	else
+	{
+		string [int] cmd_array = command.to_lower_case().split_string(",");
+		foreach num in cmd_array
 		{
-			case "daily":
-				do_daily_dungeon();
+			switch(cmd_array[num])
+			{
+				case "daily":
+					do_daily_dungeon();
+					break;
+				case "bounty":
+					cli_execute("call do_bounties.ash");
+					break;
+				case "gameinform":
+					do_the_game();
+					break;
+				case "hiddenmeat":
+					do_hidden_meat();
+					break;
+				case "pies":
+					try
+					{
+						do_dkl();
+					}
+					finally
+					{
+						do_dkl();
+					}
+					break;
+				case "consume":
+					do_consume();
+				case "byprop":
+					string mytasks = get_property("do_auto_tasks");
+					parse_do_auto(mytasks);
 				break;
-			case "bounty":
-				cli_execute("call do_bounties.ash");
-				break;
-			case "gameinform":
-				do_the_game();
-				break;
-			case "hiddenmeat":
-				do_hidden_meat();
-				break;
-			case "pies":
-				try
-				{
-					do_dkl();
-				}
-				finally
-				{
-					do_dkl();
-				}
-				break;
-			case "consume":
-				do_consume();
-			break;
-			default:
-				print(cmd_array[num] + " is not a valid choice)");
-				//do_daily_dungeon();
-				//cli_execute("call do_bounties.ash");
-				break;
+				default:
+					print(cmd_array[num] + " is not a valid choice)");
+					//do_daily_dungeon();
+					//cli_execute("call do_bounties.ash");
+					break;
+			}
 		}
 	}
 }
