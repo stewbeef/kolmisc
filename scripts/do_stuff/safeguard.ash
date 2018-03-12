@@ -284,7 +284,7 @@ void sg_closet_items()
 {
 	foreach it in get_inventory()
 	{
-		if((it.is_giftable() || it.is_tradeable()) &&  it.discardable())
+		if((it.is_giftable() || it.is_tradeable()) &&  it.is_discardable())
 		{
 			if (it != to_item("Doc Galaktik's Pungent Unguent"))
 			put_closet(item_amount(it), it);
