@@ -294,7 +294,7 @@ void sg_closet_items()
 	{
 		foreach it in Safeguard_Array()[name]
 		{
-			print(it.to_string())
+			//print(it.to_string());
 			put_closet(item_amount(it), it);
 		}
 	}
