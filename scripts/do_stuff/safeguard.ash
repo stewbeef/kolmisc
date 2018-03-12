@@ -271,7 +271,7 @@ void _sg_closet_keeponly(item it, int keepamt)
 {
 	if(closet_amount(it) < keepamt)
 	{
-		put_closet(min(have_amount(it),keepamt - closet_amount(it)), it);
+		put_closet(min(item_amount(it),keepamt - closet_amount(it)), it);
 
 	}
 	else if (closet_amount(it) > keepamt)
@@ -443,7 +443,7 @@ void sg_mall_items()
 	{
 		int keepamt = Safeguard_Array()["auction",it];
 		_sg_closet_keeponly(it,keepamt);
-		if(have_amount(it) > 0)
+		if(item_amount(it) > 0)
 		{
 			int price = 0;
 			string prop = "sg_mall_item." + it.to_string();
