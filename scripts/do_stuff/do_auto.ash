@@ -14,7 +14,7 @@ void do_daily_dungeon()
 
 		getbuy(1,picko);
 		getbuy(1,rdbd);
-		getbuy(1,rdbd);
+		getbuy(1,elevenft);
 
 		print("equipping ring of detecting boring doors");
 		slot accslot = $slot[acc3];
@@ -33,7 +33,7 @@ void do_daily_dungeon()
 		{
 			put_closet(1,picko);
 			put_closet(1,rdbd);
-			put_closet(1,rdbd);
+			put_closet(1,elevenft);
 		}
 	}
 	else
@@ -72,7 +72,7 @@ void do_consume()
 
 void parse_do_auto(string command)
 {
-	matcher m = create_matcher("\s*setprop(\s|,)+(.*)",command);
+	matcher m = create_matcher("setprop(\\s|,)+(.*)",command);
 
 	if(m.find())
 	{
