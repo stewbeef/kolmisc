@@ -433,9 +433,6 @@ void sg_junk_items()
 			autosell(sell_amount, it);
 		}
 	}
-	/*
-
-	*/
 }
 void sg_mall_items()
 {
@@ -461,7 +458,7 @@ void sg_mall_items()
 			{
 				price=mall_price(item);
 			}
-			put_shop(item_amount(it), 0, it);
+			put_shop(price,0, item_amount(it),it);
 		}
 
 	}
@@ -584,10 +581,6 @@ void Parse_Safeguard_Command(string command)
 		case "safeguard":
 		case "closet":
 			sg_closet_items();
-			break;
-		case "get":
-		case "-closet":
-			sg_closet_remove();
 			break;
 		case "list":
 		case "print":
