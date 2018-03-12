@@ -72,7 +72,7 @@ void do_consume()
 
 void parse_do_auto(string command)
 {
-	matcher m = create_matcher("\s*setprop(\s|,)+(.*)");
+	matcher m = create_matcher("\s*setprop(\s|,)+(.*)",command);
 
 	if(m.find())
 	{
