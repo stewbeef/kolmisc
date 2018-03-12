@@ -74,6 +74,7 @@ void parse_do_auto(string command)
 {
 	matcher m = create_matcher("setprop(\\s|,)+(.*)",command);
 
+
 	if(m.find())
 	{
 		set_property("do_auto_tasks",m.group(2));
@@ -87,16 +88,16 @@ void parse_do_auto(string command)
 			{
 				case "daily":
 					do_daily_dungeon();
-					break;
+				break;
 				case "bounty":
 					cli_execute("call do_bounties.ash");
-					break;
+				break;
 				case "gameinform":
 					do_the_game();
-					break;
+				break;
 				case "hiddenmeat":
 					do_hidden_meat();
-					break;
+				break;
 				case "pies":
 					try
 					{
@@ -106,9 +107,10 @@ void parse_do_auto(string command)
 					{
 						do_dkl();
 					}
-					break;
+				break;
 				case "consume":
 					do_consume();
+				break;
 				case "byprop":
 					string mytasks = get_property("do_auto_tasks");
 					parse_do_auto(mytasks);
@@ -117,7 +119,7 @@ void parse_do_auto(string command)
 					print(cmd_array[num] + " is not a valid choice)");
 					//do_daily_dungeon();
 					//cli_execute("call do_bounties.ash");
-					break;
+				break;
 			}
 		}
 	}
