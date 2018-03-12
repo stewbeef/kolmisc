@@ -487,7 +487,7 @@ void sg_pulverize_items()
 	{
 		int keepamt = Safeguard_Array()["pulverize",it];
 		_sg_closet_keeponly(it,keepamt);
-		cli_execute("pulverize " + have_amount(it) + " " + it.to_string());
+		cli_execute("pulverize " + item_amount(it) + " " + it.to_string());
 	}
 
 }
