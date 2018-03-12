@@ -12,9 +12,9 @@ void do_daily_dungeon()
 		item rdbd = to_item("ring of Detect Boring Doors");
 		item elevenft = to_item("eleven-foot pole");
 
-		getbuy(1,picko)
-		getbuy(1,rdbd)
-		getbuy(1,rdbd)
+		getbuy(1,picko);
+		getbuy(1,rdbd);
+		getbuy(1,rdbd);
 
 		print("equipping ring of detecting boring doors");
 		slot accslot = $slot[acc3];
@@ -31,9 +31,9 @@ void do_daily_dungeon()
 		print("daily dungeon complete");
 		if(hippy_stone_broken())
 		{
-			put_closet(1,picko)
-			put_closet(1,rdbd)
-			put_closet(1,rdbd)
+			put_closet(1,picko);
+			put_closet(1,rdbd);
+			put_closet(1,rdbd);
 		}
 	}
 	else
