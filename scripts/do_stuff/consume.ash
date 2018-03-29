@@ -280,7 +280,7 @@ void Parse_Consume_Command(string command)
 		//	PrintCandidates(costs_array);
 		//break;
 		case "list":
-			costs_array = StringInt2BooleanInt(command_array.FromX(1));
+			boolean [int] costs_array = StringInt2BooleanInt(command_array.FromX(1));
 			PrintOptions(costs_array);
 		break;
 		case "food":
