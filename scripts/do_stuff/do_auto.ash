@@ -10,7 +10,8 @@ import "daily_key_lime.ash";
 
 void do_lyle()
 {
-	maximize("10 meat,effective,-ml max 5", false);
+	maximize("100 meat,effective", false);
+	cli_execute("mood hollow extends default");
 	use_familiar(to_familiar("leprechaun"));
 	maximize("meat,-weapon", false);
 	cli_execute("clanfortune npc,meat");
@@ -19,6 +20,7 @@ void do_lyle()
 		cli_execute("concert winklered");
 	}
 	adventure(my_adventures(),to_location(508));
+	cli_execute("mood default");
 }
 
 void do_daily_dungeon()
