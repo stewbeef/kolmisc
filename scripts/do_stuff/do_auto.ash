@@ -10,10 +10,11 @@ import "daily_key_lime.ash";
 
 void do_lyle()
 {
-	maximize("100 meat,effective", false);
+	
 	cli_execute("mood hollow extends default");
 	use_familiar(to_familiar("leprechaun"));
-	maximize("meat,-weapon", false);
+	maximize("weapon,mainstat,effective", false);
+	maximize("100 meat,-weapon,mainstat", false);
 	cli_execute("clanfortune npc,meat");
 	if(get_property("sidequestArenaCompleted") == "hippy" || get_property("sidequestArenaCompleted") == "fratboy")
 	{
