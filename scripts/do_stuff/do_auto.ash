@@ -1,8 +1,25 @@
+/*
+set_propery("do_auto_tasks","consume,daily,bounty,lyle")
+set_propery("valueOfAdventure","1000")
+*/
+
 script "do_auto.ash";
 import "beefy_tools.ash";
 import "do_gameinform.ash";
 import "daily_key_lime.ash";
 
+void do_lyle()
+{
+	maximize("10 meat,effective,-ml max 5", false);
+	use_familiar(to_familiar("leprechaun"));
+	maximize("meat,-weapon", false);
+	cli_execute("clanfortune npc,meat");
+	if(get_property("sidequestArenaCompleted") == "hippy" || get_property("sidequestArenaCompleted") == "fratboy")
+	{
+		cli_execute("concert winklered");
+	}
+	adventure(my_adventures(),to_location(508));
+}
 
 void do_daily_dungeon()
 {
@@ -67,7 +84,7 @@ void do_hidden_meat()
 }
 void do_consume()
 {
-	cli_execute("consume both,400");
+	cli_execute("consume both");
 }
 
 void parse_do_auto(string command)
@@ -93,10 +110,14 @@ void parse_do_auto(string command)
 					cli_execute("call do_bounties.ash");
 				break;
 				case "gameinform":
+					cli_execute("clanfortune npc,item");
 					do_the_game();
 				break;
 				case "hiddenmeat":
 					do_hidden_meat();
+				break;
+				case "lyle":
+					do_lyle();
 				break;
 				case "pies":
 					try
@@ -112,6 +133,7 @@ void parse_do_auto(string command)
 					do_consume();
 				break;
 				case "byprop":
+				//ash 
 					string mytasks = get_property("do_auto_tasks");
 					parse_do_auto(mytasks);
 				break;

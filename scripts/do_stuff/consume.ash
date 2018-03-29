@@ -226,6 +226,11 @@ void FillUp(int advcost, boolean eat, boolean drink)
 		DoDrinking(mylist,advcost);
 	}
 }
+void FillUp(boolean eat, boolean drink)
+{
+	int advcost = get_property("valueOfAdventure");
+	FillUp(boolean eat, boolean drink);
+}
 
 void PrintOptions(boolean [int] advcosts)
 {
@@ -272,7 +277,7 @@ void Parse_Consume_Command(string command)
 	boolean [int] costs_array = StringInt2BooleanInt(command_array.FromX(1));
 	switch(command_array[0])
 	{
-		//case "candidtes":
+		//case "candidates":
 		//	PrintCandidates(costs_array);
 		//break;
 		case "list":
@@ -280,15 +285,39 @@ void Parse_Consume_Command(string command)
 		break;
 		case "food":
 		case "eat":
-			FillUp(command_array[1].to_int(),true,false);
+			switch(command_array.count())
+			{
+				case 1:
+					FillUp(true,false);
+				break;
+				case 2:
+					FillUp(command_array[1].to_int(),true,false);
+				break;
+			}
 		break;
 		case "booze":
 		case "drink":
-			FillUp(command_array[1].to_int(),false,true);
+			switch(command_array.count())
+			{
+				case 1:
+					FillUp(false,true);
+				break;
+				case 2:
+					FillUp(command_array[1].to_int(),false,true);
+				break;
+			}
 		break;
 		case "fillup":
 		case "both":
-			FillUp(command_array[1].to_int(), true, true);
+			switch(command_array.count())
+			{
+				case 1:
+					FillUp(true,true);
+				break;
+				case 2:
+					FillUp(command_array[1].to_int(),true,true);
+				break;
+			}
 		break;	
 	}
 }
