@@ -274,18 +274,18 @@ void Parse_Consume_Command(string command)
 {
 	string [int] command_array = split_string(command,",");
 	int paramnum = command_array.count();
-	boolean [int] costs_array = StringInt2BooleanInt(command_array.FromX(1));
 	switch(command_array[0])
 	{
 		//case "candidates":
 		//	PrintCandidates(costs_array);
 		//break;
 		case "list":
+			costs_array = StringInt2BooleanInt(command_array.FromX(1));
 			PrintOptions(costs_array);
 		break;
 		case "food":
 		case "eat":
-			switch(command_array.count())
+			switch(paramnum)
 			{
 				case 1:
 					FillUp(true,false);
@@ -297,7 +297,7 @@ void Parse_Consume_Command(string command)
 		break;
 		case "booze":
 		case "drink":
-			switch(command_array.count())
+			switch(paramnum)
 			{
 				case 1:
 					FillUp(false,true);
@@ -309,7 +309,7 @@ void Parse_Consume_Command(string command)
 		break;
 		case "fillup":
 		case "both":
-			switch(command_array.count())
+			switch(paramnum)
 			{
 				case 1:
 					FillUp(true,true);
