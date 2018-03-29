@@ -228,7 +228,7 @@ void FillUp(int advcost, boolean eat, boolean drink)
 }
 void FillUp(boolean eat, boolean drink)
 {
-	int advcost = get_property("valueOfAdventure");
+	int advcost = get_property("valueOfAdventure").to_int();
 	FillUp(boolean eat, boolean drink);
 }
 

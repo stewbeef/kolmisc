@@ -1,6 +1,6 @@
 /*
-set_propery("do_auto_tasks","consume,daily,bounty,lyle")
-set_propery("valueOfAdventure","1000")
+ash set_property("do_auto_tasks","consume,daily,bounty,lyle")
+ash set_property("valueOfAdventure","1000")
 */
 
 script "do_auto.ash";
