@@ -1,5 +1,5 @@
 /*
-ash set_property("do_auto_tasks","consume,daily,bounty,lyle")
+ash set_property("do_auto_tasks","consume,daily,lyle")
 ash set_property("valueOfAdventure","1000")
 */
 
