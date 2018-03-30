@@ -306,13 +306,22 @@ void sg_closet_items()
 		{
 			if (it != to_item("Doc Galaktik's Pungent Unguent") && item_amount(it) > 0)
 			{
+				bool success = false;
 				try
 				{
 					put_closet(item_amount(it), it);
+					success = true;
 				}
 				finally
 				{
-					print_html("Attempted to place %s into closet", it.to_string());
+					if(success)
+					{
+						print_html("Placed %s quantity of %s into closet", $string[item_amount(it).to_string(),it.to_string()]);
+					}
+					else
+					{
+						print_html("Could not confirm placement of %s quantity of %s into closet -- probably worked anyway", $string[item_amount(it).to_string(),it.to_string()]);
+					}
 				}
 			}
 		}
