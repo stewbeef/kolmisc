@@ -287,7 +287,14 @@ void sg_closet_items()
 		if((it.is_giftable() || it.is_tradeable()) &&  it.is_discardable())
 		{
 			if (it != to_item("Doc Galaktik's Pungent Unguent"))
-			put_closet(item_amount(it), it);
+			try
+			{
+				put_closet(item_amount(it), it);
+			}
+			finally
+			{
+				print_html("Attempted to place %s into closet", it.to_string());
+			}
 		}
 	}
 	foreach name in Safeguard_Array()
@@ -295,20 +302,15 @@ void sg_closet_items()
 		foreach it in Safeguard_Array()[name]
 		{
 			//print(it.to_string());
-			put_closet(item_amount(it), it);
+			try
+			{
+				put_closet(item_amount(it), it);
+			}
+			finally
+			{
+				print_html("Attempted to place %s into closet", it.to_string());
+			}
 		}
-	}
-	foreach it in Safeguard_Array()["auction"]
-	{
-		int amt = item_amount(it);
-		if(closet_amount(it) == 0)
-		{
-			put_closet(item_amount(it), it);
-		}
-	}
-	foreach it in Safeguard_Array()["pulverize"]
-	{
-		put_closet(item_amount(it), it);
 	}
 	GetBuy(50,to_item("Doc Galaktik's Pungent Unguent"));
 }
