@@ -306,7 +306,7 @@ void sg_closet_items()
 		{
 			if (it != to_item("Doc Galaktik's Pungent Unguent") && item_amount(it) > 0)
 			{
-				bool success = false;
+				boolean success = false;
 				try
 				{
 					put_closet(item_amount(it), it);
