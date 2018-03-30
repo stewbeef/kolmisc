@@ -14,7 +14,7 @@ void do_lyle()
 	cli_execute("mood hollow extends default");
 	use_familiar(to_familiar("leprechaun"));
 	maximize("weapon,mainstat,effective", false);
-	maximize("100 meat,-weapon,mainstat", false);
+	maximize("100 meat,-weapon,mainstat,-15 ml", false);
 	cli_execute("clanfortune npc,meat");
 	if(get_property("sidequestArenaCompleted") == "hippy" || get_property("sidequestArenaCompleted") == "fratboy")
 	{
