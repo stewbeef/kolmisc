@@ -13,8 +13,15 @@ void do_lyle()
 	
 	cli_execute("mood hollow extends default");
 	use_familiar(to_familiar("leprechaun"));
-	maximize("weapon,mainstat,effective", false);
-	maximize("100 meat,-weapon,mainstat,-15 ml", false);
+	if(my_class() == $class[turtle tamer])
+	{
+		maximize("weapon,mainstat,effective", false);
+		maximize("100 meat,-weapon,mainstat,-15 ml", false);
+	}
+	else
+	{
+		maximize("100 meat,mainstat,-15 ml", false);
+	}
 	cli_execute("clanfortune npc,meat");
 	if(get_property("sidequestArenaCompleted") == "hippy" || get_property("sidequestArenaCompleted") == "fratboy")
 	{
