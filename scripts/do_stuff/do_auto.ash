@@ -74,17 +74,22 @@ void do_hidden_meat()
 	if(get_property("_do_meat") != "done")
 	{
 		print("getting meat...");
-		//familiar current = my_familiar();
+		cli_execute("mood hollow extends default");
 		use_familiar(to_familiar("leprechaun"));
-		maximize("meat,-weapon", false);
-		if(get_property("sidequestArenaCompleted") == "hippy" || get_property("sidequestArenaCompleted") == "fratboy")
+		if(my_class() == $class[turtle tamer])
 		{
-			cli_execute("concert winklered");
+			maximize("weapon,mainstat,effective", false);
+			maximize("100 meat,-weapon,mainstat,-15 ml", false);
 		}
-		adventure(20,to_location(343));
+		else
+		{
+			maximize("100 meat,mainstat,-15 ml", false);
+		}
+		cli_execute("clanfortune npc,meat");
+		adventure(my_adventures(),to_location(343));
 		//use_familiar(current);
-		use_familiar(to_familiar("lil' barrel mimic"));
 		outfit("Main");
+		cli_execute("mood default");
 		set_property("_do_meat","done");
 	}
 	else
