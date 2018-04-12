@@ -292,17 +292,18 @@ void sg_closet_items()
 				boolean success = false;
 				try
 				{
+					int it_num = item_amount(it);
 					success = put_closet(item_amount(it), it);
 				}
 				finally
 				{
 					if(success)
 					{
-						print_html("Placed %s quantity of %s into closet", string[int] {item_amount(it).to_string(),it.to_string()});
+						print_html("Placed %s quantity of %s into closet", string[int] {it_num.to_string(),it.to_string()});
 					}
 					else
 					{
-						print_html("Could not confirm placement of %s quantity of %s into closet -- probably worked anyway", string[int] {item_amount(it).to_string(),it.to_string()});
+						print_html("Could not confirm placement of %s quantity of %s into closet -- probably worked anyway", string[int] {it_num.to_string(),it.to_string()});
 					}
 					continue;
 				}
@@ -318,6 +319,7 @@ void sg_closet_items()
 				boolean success = false;
 				try
 				{
+					int it_num = item_amount(it);
 					success = put_closet(item_amount(it), it);
 
 				}
@@ -325,11 +327,11 @@ void sg_closet_items()
 				{
 					if(success)
 					{
-						print_html("Placed %s quantity of %s into closet", string[int] {item_amount(it).to_string(),it.to_string()});
+						print_html("Placed %s quantity of %s into closet", string[int] {it_num.to_string(),it.to_string()});
 					}
 					else
 					{
-						print_html("Could not confirm placement of %s quantity of %s into closet -- probably worked anyway", string[int] {item_amount(it).to_string(),it.to_string()});
+						print_html("Could not confirm placement of %s quantity of %s into closet -- probably worked anyway", string[int] {it_num.to_string(),it.to_string()});
 					}
 					continue;
 				}
