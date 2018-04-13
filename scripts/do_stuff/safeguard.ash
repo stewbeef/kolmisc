@@ -304,7 +304,7 @@ void sg_closet_items()
 					}
 					else
 					{
-						print_html("<color=red>Could not confirm placement of %s quantity of %s into closet -- probably worked anyway</color>", string[int] {it_num.to_string(),it.to_string()});
+						print_html("<color=RED>Could not confirm placement of %s quantity of %s into closet -- probably worked anyway</color>", string[int] {it_num.to_string(),it.to_string()});
 					}
 					continue;
 				}
@@ -332,7 +332,7 @@ void sg_closet_items()
 					}
 					else
 					{
-						print_html("<color=red>Could not confirm placement of %s quantity of %s into closet -- probably worked anyway</color>", string[int] {it_num.to_string(),it.to_string()});
+						print_html("<color=RED>Could not confirm placement of %s quantity of %s into closet -- probably worked anyway</color>", string[int] {it_num.to_string(),it.to_string()});
 					}
 					continue;
 				}
