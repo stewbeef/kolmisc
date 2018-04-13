@@ -282,6 +282,7 @@ void _sg_closet_keeponly(item it, int keepamt)
 
 void sg_closet_items()
 {
+	print("Closeting items...");
 	foreach it in get_inventory()
 	{
 		if((it.is_giftable() || it.is_tradeable()) &&  it.is_discardable())
@@ -338,7 +339,10 @@ void sg_closet_items()
 			}
 		}
 	}
+	print("Done Closeting items...");
+	print("Buying Token Stealables...");
 	GetBuy(50,to_item("Doc Galaktik's Pungent Unguent"));
+	print("Done Buying Token Stealables...");
 }
 
 void sg_closet_remove()
